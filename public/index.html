@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket.IO Test</title>
+</head>
+<body>
+    <h1>Socket.IO Test</h1>
+    <p>Status: <span id="status">Disconnected</span></p>
+    <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO" crossorigin="anonymous"></script>
+    <script>
+        const PORT = window.location.port || 3001; 
+        const socket = io(`http://localhost:${PORT}`);
+
+        socket.on('connect', () => {
+            document.getElementById('status').textContent = 'Connected';
+            console.log('Connected to server on port', PORT);
+        });
+
+        socket.on('disconnect', () => {
+            document.getElementById('status').textContent = 'Disconnected';
+            console.log('Disconnected from server');
+        });
+
+        socket.on('message', (msg) => {
+            console.log('Received message:', msg);
+        });
+    </script>
+</body>
+</html>
