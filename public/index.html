@@ -10,12 +10,12 @@
     <p>Status: <span id="status">Disconnected</span></p>
     <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO" crossorigin="anonymous"></script>
     <script>
-        const PORT = window.location.port || 3001; 
-        const socket = io(`http://localhost:${PORT}`);
+        const HOST = location.protocol + '//' + location.host; 
+        const socket = io(HOST);
 
         socket.on('connect', () => {
             document.getElementById('status').textContent = 'Connected';
-            console.log('Connected to server on port', PORT);
+            console.log('Connected to server on host', HOST);
         });
 
         socket.on('disconnect', () => {
