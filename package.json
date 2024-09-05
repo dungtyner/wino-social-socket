@@ -20,8 +20,10 @@
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
     "https": "^1.0.0",
+    "module-alias": "^2.2.3",
     "nodemailer": "^6.7.8",
     "process": "^0.11.10",
+    "server": "file:",
     "socket.io": "^4.5.3"
   },
   "devDependencies": {
@@ -33,5 +35,10 @@
     "globals": "^15.8.0",
     "nodemon": "^2.0.19",
     "prettier": "^3.3.2"
+  },
+  "_moduleAliases": {
+    "@": "app",
+    "@wn-config": "config",
+    "@wn-public": "public"
   }
 }
